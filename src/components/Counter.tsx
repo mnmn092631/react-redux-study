@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { DECREASE, INCREASE } from "../store/counter";
+import { decreaseAsync, increaseAsync } from "../store/counter";
 
 const Counter = () => {
   const dispatch = useDispatch();
@@ -11,8 +11,8 @@ const Counter = () => {
     <div>
       <h1>{number}</h1>
       <div>
-        <button onClick={() => dispatch(INCREASE())}>+1</button>
-        <button onClick={() => dispatch(DECREASE())}>-1</button>
+        <button onClick={() => dispatch(increaseAsync())}>+1</button>
+        <button onClick={() => dispatch(decreaseAsync())}>-1</button>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { AppDispatch } from ".";
 
 interface State {
   number: number;
@@ -20,6 +21,16 @@ const counterSlice = createSlice({
     },
   },
 });
+
+export const increaseAsync = (): any => async (dispatch: AppDispatch) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  dispatch(INCREASE());
+};
+
+export const decreaseAsync = (): any => async (dispatch: AppDispatch) => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  dispatch(DECREASE());
+};
 
 export const { INCREASE, DECREASE } = counterSlice.actions;
 export default counterSlice.reducer;
