@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterSlice from "./counter";
 import todosSlice from "./todos";
+import sampleSlice from "./sample"
 import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 
@@ -9,6 +10,7 @@ const store = configureStore({
   reducer: {
     counter: counterSlice,
     todos: todosSlice,
+    sample: sampleSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(logger, thunk),
