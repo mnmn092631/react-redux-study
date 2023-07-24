@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface Todo {
+export interface Todo {
   id: number;
   text: string;
   done: boolean;
@@ -39,14 +39,12 @@ const todosSlice = createSlice({
       });
     },
     TOGGLE: (state: State, action: PayloadAction<number>) => {
-      const id = action.payload;
-      state.todos.map((todo) =>
-        todo.id === id ? { ...todo, done: !todo.done } : state
+      state.todos = state.todos.map((todo) =>
+        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
       );
     },
     REMOVE: (state: State, action: PayloadAction<number>) => {
-      const id = action.payload;
-      state.todos = state.todos.filter((todo) => todo.id !== id);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
   },
 });

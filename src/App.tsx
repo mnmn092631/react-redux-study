@@ -6,7 +6,7 @@ import Todos from "./components/Todos";
 function App() {
   return (
     <div>
-      <Counter number={0} />
+      <Counter />
       <hr />
       <Todos />
     </div>
